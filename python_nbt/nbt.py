@@ -285,7 +285,12 @@ class NBTTagByteArray(NBTTagContainerList):
     
     def _read_buffer(self, buffer):
         length = NBTTagInt(buffer=buffer).value
-        self.extend(list(bytearray(buffer.read(length))))
+        l = []
+        ba = bytearray(buffer.read(length))
+        for b in ba:
+            b = ((256 - b) * -1) if b > 127 else b
+            l.append(b)
+        self.extend(l)
 
     def _write_buffer(self, buffer):
         length = NBTTagInt(len(self.value))

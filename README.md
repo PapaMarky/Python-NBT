@@ -1,3 +1,20 @@
+This is my personal fork of Python-NBT. I created this fork for use with https://github.com/PapaMarky/pycraft.
+
+I have modified the original to
+fix an issue with byte arrays being read as unsigned.
+
+Byte in Java is represented as a signed int in the range (-128, 127), Byte in Python is represented as an unsigned int in range(0, 255))
+
+[Convert 8-bit byte to signed int in python](https://blog.michaelyin.info/convert-8bit-byte-to-signed-int/) for more details.
+
+To build and install this Fork:
+
+`python3 -m build`
+`pip3 install dist/Python_NBT-1.2.0a0-py3-none-any.whl`
+
+
+---- ORIGINAL README FILE FOLLOWS ----
+
 # Python-NBT
 
 A python library for reading and writing NBT files. Compatible with json.
